@@ -35,14 +35,14 @@ public class WeatherTomorrowServiceImpl implements WeatherTomorrowService {
         if (zipCode == null) {
             throw new Exception("400");
       }
-        Weather weather = new Weather();
-        
-        LocalDate today = LocalDate.now();
-	    LocalDate tomorrow = today.plusDays(1);
-	    String URL="https://api.worldweatheronline.com/premium/v1/weather.ashx?key=0855445b5f334b74a0240218193012&q="+zipCode+",united&format=json&num_of_days=2&tp=1";
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-        ResponseEntity<Object> rateResponse =
+      Weather weather = new Weather();
+      LocalDate today = LocalDate.now();
+	  LocalDate tomorrow = today.plusDays(1);
+	  String URL="https://api.worldweatheronline.com/premium/v1/weather.ashx?key=0855445b5f334b74a0240218193012&q="+zipCode+",united&format=json&num_of_days=2&tp=1";
+     
+	  ObjectMapper mapper = new ObjectMapper();
+      mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+      ResponseEntity<Object> rateResponse =
                 restTemplate.exchange(URL,
                         HttpMethod.GET, null, new ParameterizedTypeReference<Object>() {
                         });

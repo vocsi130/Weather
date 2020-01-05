@@ -11,7 +11,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
 public class City implements Serializable {
    private String type;
    private String query;
